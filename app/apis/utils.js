@@ -17,6 +17,54 @@ function getLocation() {
     return { lat: latitude, long: longitude };
 }
 
+function getMonth(monthNumber) {
+    switch(monthNumber) {
+        case 1:
+            return "Jan";
+        case 2:
+            return "Feb";
+        case 3:
+            return "March";
+        case 4:
+            return "April";
+        case 5:
+            return "May";
+        case 6:
+            return "June";
+        case 7:
+            return "July";
+        case 8:
+            return "Aug";
+        case 9:
+            return "Sept";
+        case 10:
+            return "Oct";
+        case 11:
+            return "Nov";
+        case 12:
+            return "Dec";
+    }
+}
+
+function getDay(dayNumber) {
+    switch(dayNumber) {
+        case 1:
+            return "Mon";
+        case 2:
+            return "Tue";
+        case 3:
+            return "Web";
+        case 4:
+            return "Thu";
+        case 5:
+            return "Fri";
+        case 6:
+            return "Sat";
+        case 7:
+            return "Sun";
+    }
+}
+
 export function getCurrentWeather(lat = 0, long = 0) {
     if (lat === 0 && long === 0) {
         const { lat, long } = getLocation();
@@ -29,6 +77,14 @@ export function getCurrentWeather(lat = 0, long = 0) {
         "aqi": 27, "dhi": 111.93, "wind_dir": 311, "elev_angle": 48.35, "ghi": 758.95, "precip": 0, "sunset": "02:47", "lat": 47.7331, "uv": 6.27329, "datetime": "2022-09-02:21", "temp": 26.1,
         "weather": { "icon": "c01d", "code": 800, "description": "Clear sky" }, "station": "D3422"
     });
+}
+
+export function getCurrentDate() {
+    const currentDate = new Date();
+    const date = currentDate.getDate();
+    const month = getMonth(currentDate.getMonth() + 1);
+    const day = getDay(currentDate.getDay());
+    return `${day}, ${date} ${month}`;
 }
 
 

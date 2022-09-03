@@ -1,7 +1,8 @@
 import React from "react";
-import { getCurrentWeather } from "../apis/utils";
+import { getCurrentDate, getCurrentWeather } from "../apis/utils";
 import { getWeatherIcon } from "../apis/icons";
 import background from '../images/Cloud-background.png';
+import { MdLocationOn } from "react-icons/md";
 
 export default class SideBar extends React.Component {
     constructor(props) {
@@ -11,7 +12,10 @@ export default class SideBar extends React.Component {
             longitude: -122.1951488, 
             code: null, 
             temprature: null, 
-            description: null
+            description: null,
+            country: null,
+            state: null,
+            city: null
         };
     }
 
@@ -21,28 +25,39 @@ export default class SideBar extends React.Component {
                 this.setState({
                     code: currWeather.weather.code,
                     temprature: currWeather.temp,
-                    description: currWeather.weather.description
+                    description: currWeather.weather.description,
+                    country: currWeather.country_code,
+                    state: currWeather.state_code,
+                    city: currWeather.city_name
                 });
             })
     }
 
     render() {
-        const {code, temprature, description} = this.state;
+        const {code, temprature, description, city, state, country} = this.state;
         const weatherIcon = getWeatherIcon(code);
         return (
             <div className="today">
                 <div className="search">search</div>
                 <div className="weather-image">
-                    <img src={background} alt="" className="cloud-background"/>
+                    <img src={background} alt="" className="cloud-background lightDark"/>
                     <img src={weatherIcon} className="currWeatherIcon"/>
                 </div>
                 <div className="temperature center">
                     <span className="temp-number">{temprature}</span>
-                    <span className="temp-symbol">&deg;C</span>
+                    <span className="temp-symbol lightDark">&deg;C</span>
                 </div>
-                <div className="description center">{description}</div>
-                <div className="date">date</div>
-                <div className="location">location</div>
+                <div className="description center lightDark">{description}</div>
+                <div className="date-location lightDark center">
+                    <div>
+                        <span className="date">Today</span> • 
+                        <span className="date">{getCurrentDate()}</span>
+                    </div> 
+                    <div className="center">
+                        <MdLocationOn className="location-symbol"/>
+                        <span>{`${city}, ${state}, ${country}`}</span>
+                    </div>
+                </div>
             </div>
         )
     }
