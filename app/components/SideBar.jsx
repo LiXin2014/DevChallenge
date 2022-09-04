@@ -8,8 +8,6 @@ export default class SideBar extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            latitude: 47.7331456, 
-            longitude: -122.1951488, 
             code: null, 
             temprature: null, 
             description: null,
@@ -20,7 +18,8 @@ export default class SideBar extends React.Component {
     }
 
     componentDidMount() {
-        getCurrentWeather(this.state.latitude, this.state.longitude)
+        const {latitude, longitude} = this.props;
+        getCurrentWeather(latitude, longitude)
             .then(currWeather => {
                 this.setState({
                     code: currWeather.weather.code,
