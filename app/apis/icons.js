@@ -1,40 +1,49 @@
 import clear from '../images/Clear.png';
+import heavySnow from '../images/Hail.png';
+import snow from '../images/Snow.png';
+import lightCloud from '../images/LightCloud.png';
+import heavyCloud from '../images/HeavyCloud.png';
+import lightRain from '../images/LightRain.png';
+import heavyRain from '../images/HeavyRain.png';
+import shower from '../images/Shower.png';
+import sleet from '../images/Sleet.png';
+import thunderstorm from '../images/Thunderstorm.png';
 
 export function getWeatherIcon(code) {
     switch (code) {
         case 800: // clear
             return clear;
         case 602:  // heavy snow
-            return "../images/Hail.png";
+            return heavySnow;
         case 601: // snow
         case 600:
         case 623:
-            return "../images/Snow.png";
+            return snow;
         case 801:
         case 802:
-            return "../images/LightCloud.png";
+            return lightCloud;
         case 803:
         case 804:
-            return "../images/HeavyCloud.png";
+            return heavyCloud;
         case 500:
         case 501:
         case 300:
         case 301:
         case 302:
-            return "../images/LightRain.png";
+            return lightRain;
         case 502:
         case 522:
         case 511:
         case 621:
         case 622:
-            return "../images/HeavyRain.png";
+            return heavyRain;
         case 520:
         case 521:
-            return "../images/Shower.png";
+            return shower;
         case 610:
         case 611:
         case 612:
-            return "../images/Sleet.png";
+            return sleet;
         case 200:
         case 201:
         case 202:
@@ -42,9 +51,9 @@ export function getWeatherIcon(code) {
         case 231:
         case 232:
         case 233:
-            return "../images/Thunderstorm.png";
+            return thunderstorm;
         default:
             console.log(`${code} can not be found`);
-            return "../images/Clear.png";
+            return clear;
     }
 }

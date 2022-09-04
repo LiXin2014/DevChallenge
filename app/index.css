@@ -2,11 +2,11 @@
 
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-    margin: 0;
-    padding: 0;
     color: #E7E7EB;
     background-color: #44444a;
     height: 100vh;
@@ -35,7 +35,7 @@ body {
 /* --------------------------------------------------------- */
 /* Style side bar that contains today's weather */
 .today {
-    width: 30vw;
+    width: 30%;
     background: #1E213A;
     display: flex;
     flex-direction: column;
@@ -72,7 +72,7 @@ body {
     font-size: 6em;
 }
 
-.temp-symbol {
+.today .temp-symbol {
     align-self: center;
     font-size: 2em;
     position: relative;
@@ -99,6 +99,40 @@ body {
     margin-right: 9px;
 }
 
+/* Style for right side of forecast and highlights */
 .details {
-    width: 70vw;
+    width: 70%;
+    background: #100E1D;
+}
+
+.forecast-highlights {
+    padding: 20px 10%;
+}
+
+/* Style for forecast */
+.forecasts {
+    display: flex;
+    gap: 15px;
+}
+
+.forecast {
+    background: #1E213A;
+    flex: 1;
+    flex-direction: column;
+    padding: 10px;
+    gap: 10px;
+}
+
+.forecast img {
+    width: 60%;
+    height: 50%;   /* Need to specify height too, otherwise different image has different height */
+    object-fit: contain;
+}
+
+.forecast .temp {
+    margin-top: 20px;
+}
+
+.forecast .highTemp {
+    margin-right: 15px;
 }
