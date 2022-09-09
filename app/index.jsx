@@ -4,6 +4,7 @@ import { Forecasts } from "./components/Forecasts";
 import SideBar from "./components/SideBar";
 import { getCurrentWeather } from "./apis/utils";
 import './index.css';
+import { Highlights } from "./components/Highlights";
 
 class App extends React.Component {
     constructor(props) {
@@ -34,9 +35,12 @@ class App extends React.Component {
             <React.Fragment>
                 <SideBar currWeather={this.state.currWeather} />
                 <div className="details">
+                    <div className="unit-converter">Unit Converter</div>
                     <div className="forecast-highlights">
                         <Forecasts />
+                        <Highlights currWeather={this.state.currWeather}/>
                     </div>
+                    <footer />
                 </div>
             </React.Fragment>
         )

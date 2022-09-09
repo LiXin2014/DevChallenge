@@ -83,6 +83,7 @@ $ npm start
 
 - [Adding Images in React](https://create-react-app.dev/docs/adding-images-fonts-and-files/)
 - [Webpack file-loader](https://v4.webpack.js.org/loaders/file-loader/)
+- [How to make html page has height of at least viewport and taller if content exceeds viewport height](https://makandracards.com/makandra/39473-stretching-an-html-page-to-full-height)
 
 ## Contact
 
