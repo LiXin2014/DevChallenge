@@ -8,10 +8,22 @@ export function Highlights({ currWeather }) {
             <div className="highlights-title">Today's Highlights</div>
             <div className="highlights-container">
                 <div className="highlight-item center">
-                    <HighlightCard title={`Wind status`} value={windSpeed} unit={`m/s`}/>
+                    <HighlightCard title={`Wind status`} value={windSpeed.toFixed(2)} unit={`m/s`}>
+                        <div>{windDir}</div>
+                    </HighlightCard>
                 </div>
                 <div className="highlight-item center">
-                    <HighlightCard title={`Humidity`} value={humidity} unit={`%`}/>
+                    <HighlightCard title={`Humidity`} value={humidity} unit={`%`}>
+                        <div className="progress center">
+                            <div className="progress-number">
+                                <span>0</span>
+                                <span>50</span>
+                                <span>100</span>
+                            </div>
+                            <progress value={humidity} max="100" />
+                            <div className="progress-unit">%</div>
+                        </div>
+                    </HighlightCard>
                 </div>
                 <div className="highlight-item center">
                     <HighlightCard title={`sunset`} value={sunset} />
