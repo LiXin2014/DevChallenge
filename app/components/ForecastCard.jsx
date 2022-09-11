@@ -7,7 +7,7 @@ export default function ForecastCard({ date, code, highTemp, lowTemp }) {
     const weatherIcon = getWeatherIcon(code);
     return (
         <SymbolContext.Consumer>
-            {(symbol) => {
+            {({symbol}) => {
                 return (
                     <div className="forecast center">
                         <div className="forecast-date">{date}</div>

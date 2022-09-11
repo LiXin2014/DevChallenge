@@ -17,7 +17,7 @@ export default class SideBar extends React.Component {
 
         return (
             <SymbolContext.Consumer>
-                {(symbol) => {
+                {({symbol}) => {
                     return (
                         <div className="today">
                             <div className="search">search</div>

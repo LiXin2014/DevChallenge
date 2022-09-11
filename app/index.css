@@ -112,7 +112,7 @@ body {
 }
 
 .details .forecast-highlights {
-    padding: 100px 10%;
+    padding: 20px 10%;
     flex: 1;
     flex-direction: column;
     align-items: unset;
@@ -211,4 +211,28 @@ progress[value]::-webkit-progress-value {
 
 .progress-unit {
     align-self: flex-end;
+}
+
+
+/*Style for symbol unit converter*/
+button {
+    display: inline;
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    margin-left: 5px;
+    font-weight: 700;
+    font-size: 15px;
+    background-color: #585676;
+    color: #E7E7EB;
+}
+
+.unit-converter {
+    padding: 50px 10% 0px 10%;
+    text-align: right;
+}
+
+.symbol-selected {
+    background-color: #E7E7EB;
+    color: #110E3C;
 }

@@ -6,6 +6,7 @@ import { getCurrentWeather } from "./apis/utils";
 import './index.css';
 import { Highlights } from "./components/Highlights";
 import SymbolContext from "./context/SymbolContext";
+import UnitConverter from "./components/UnitConverter";
 
 class App extends React.Component {
     constructor(props) {
@@ -14,7 +15,12 @@ class App extends React.Component {
             latitude: 47.7331456,
             longitude: -122.1951488,
             currWeather: null,
-            symbol: 'fahrenheit'
+            symbol: 'celsius',
+            toggleSymbol: (symbol) => {
+                this.setState({
+                    symbol: symbol
+                })
+            }
         };
     }
 
@@ -34,10 +40,10 @@ class App extends React.Component {
         }
 
         return (
-            <SymbolContext.Provider value={this.state.symbol}>
+            <SymbolContext.Provider value={this.state}>
                 <SideBar currWeather={this.state.currWeather} />
                 <div className="details">
-                    <div className="unit-converter">Unit Converter</div>
+                    <UnitConverter />
                     <div className="forecast-highlights center">
                         <Forecasts />
                         <Highlights currWeather={this.state.currWeather}/>
