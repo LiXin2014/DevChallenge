@@ -75,6 +75,30 @@ export function getRotation(windDir) {
     }
 }
 
+export function getTemp(temperature, symbol) {
+    switch (symbol) {
+        case "celsius":
+            return temperature.toFixed(1);
+        case "fahrenheit":
+            return (temperature * 1.8 + 32).toFixed(1);
+        default:
+            console.log(`wrong temp symbol`);
+            return temperature;
+    }
+}
+
+export function getTempSymbol(symbol) {
+    switch (symbol) {
+        case "celsius":
+            return "°C";
+        case "fahrenheit":
+            return "°F";
+        default:
+            console.log(`wrong temp symbol`);
+            return "°C";
+    }
+}
+
 export function getCurrentWeather(lat = 0, long = 0) {
     if (lat === 0 && long === 0) {
         const { lat, long } = getLocation();

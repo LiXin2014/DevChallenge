@@ -5,6 +5,7 @@ import SideBar from "./components/SideBar";
 import { getCurrentWeather } from "./apis/utils";
 import './index.css';
 import { Highlights } from "./components/Highlights";
+import SymbolContext from "./context/SymbolContext";
 
 class App extends React.Component {
     constructor(props) {
@@ -12,7 +13,8 @@ class App extends React.Component {
         this.state = {
             latitude: 47.7331456,
             longitude: -122.1951488,
-            currWeather: null
+            currWeather: null,
+            symbol: 'fahrenheit'
         };
     }
 
@@ -32,7 +34,7 @@ class App extends React.Component {
         }
 
         return (
-            <React.Fragment>
+            <SymbolContext.Provider value={this.state.symbol}>
                 <SideBar currWeather={this.state.currWeather} />
                 <div className="details">
                     <div className="unit-converter">Unit Converter</div>
@@ -42,7 +44,7 @@ class App extends React.Component {
                     </div>
                     <footer />
                 </div>
-            </React.Fragment>
+            </SymbolContext.Provider>
         )
     }
 }
