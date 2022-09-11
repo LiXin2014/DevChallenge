@@ -65,6 +65,16 @@ function getDay(dayNumber) {
     }
 }
 
+export function getRotation(windDir) {
+    switch (windDir) {
+        case "NE":
+            return "45deg";
+        default:
+            console.log(`add rotation deg for ${windDir}`);
+            return "45deg";
+    }
+}
+
 export function getCurrentWeather(lat = 0, long = 0) {
     if (lat === 0 && long === 0) {
         const { lat, long } = getLocation();

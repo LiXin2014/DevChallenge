@@ -114,6 +114,9 @@ body {
 .details .forecast-highlights {
     padding: 100px 10%;
     flex: 1;
+    flex-direction: column;
+    align-items: unset;
+    justify-content: space-evenly;
 }
 
 /* Style for forecast */

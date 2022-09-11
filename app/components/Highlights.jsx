@@ -1,5 +1,7 @@
 import React from "react";
 import { HighlightCard } from "./HighlightCard";
+import { MdAssistantNavigation } from "react-icons/md";
+import { getRotation } from "../apis/utils";
 
 export function Highlights({ currWeather }) {
     const {wind_spd: windSpeed, wind_cdir: windDir, rh: humidity, sunset, aqi} = currWeather;
@@ -9,7 +11,10 @@ export function Highlights({ currWeather }) {
             <div className="highlights-container">
                 <div className="highlight-item center">
                     <HighlightCard title={`Wind status`} value={windSpeed.toFixed(2)} unit={`m/s`}>
-                        <div>{windDir}</div>
+                        <div className="center">
+                            <MdAssistantNavigation style={{marginRight: 10, width: '1.5em', height: '1.5em', transform: `rotate(${getRotation(windDir)})`}}/>
+                            <span>{windDir}</span>
+                        </div>
                     </HighlightCard>
                 </div>
                 <div className="highlight-item center">

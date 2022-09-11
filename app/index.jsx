@@ -36,7 +36,7 @@ class App extends React.Component {
                 <SideBar currWeather={this.state.currWeather} />
                 <div className="details">
                     <div className="unit-converter">Unit Converter</div>
-                    <div className="forecast-highlights">
+                    <div className="forecast-highlights center">
                         <Forecasts />
                         <Highlights currWeather={this.state.currWeather}/>
                     </div>
