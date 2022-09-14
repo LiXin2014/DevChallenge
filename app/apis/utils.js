@@ -65,8 +65,38 @@ function getDay(dayNumber) {
 
 export function getRotation(windDir) {
     switch (windDir) {
+        case "N":
+            return "0deg";
+        case "NNE":
+            return "22.5deg";
         case "NE":
             return "45deg";
+        case "ENE":
+            return "67.5deg";
+        case "E":
+            return "90deg";
+        case "ESE":
+            return "112.5deg";
+        case "SE":
+            return "135deg";
+        case "SSE":
+            return "157.5deg";
+        case "S":
+            return "180deg";
+        case "SSW":
+            return "202.5deg";
+        case "SW":
+            return "225deg";
+        case "WSW":
+            return "247.5deg";
+        case "W":
+            return "270deg";
+        case "WNW":
+            return "292.5deg";
+        case "NW":
+            return "315deg";
+        case "NNW":
+            return "337.5deg";
         default:
             console.log(`add rotation deg for ${windDir}`);
             return "45deg";
