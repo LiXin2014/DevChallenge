@@ -11,9 +11,9 @@ export class Forecasts extends React.Component {
     }
 
     componentDidMount() {
-        getForcasts()
+        getForcasts(this.props.latitude, this.props.longitude)
             .then(result => {
-                this.setState({ forecasts: result.data.slice(0, 5) });
+                this.setState({ forecasts: result.slice(0, 5) });
             })
     }
 

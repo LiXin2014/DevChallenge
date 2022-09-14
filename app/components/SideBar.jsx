@@ -4,6 +4,7 @@ import { getWeatherIcon } from "../apis/icons";
 import background from '../images/Cloud-background.png';
 import { MdLocationOn } from "react-icons/md";
 import SymbolContext from "../context/SymbolContext";
+import { MdOutlineMyLocation } from "react-icons/md";
 
 export default class SideBar extends React.Component {
     constructor(props) {
@@ -20,7 +21,9 @@ export default class SideBar extends React.Component {
                 {({symbol}) => {
                     return (
                         <div className="today">
-                            <div className="search">search</div>
+                            <div className="search">
+                                <button onClick={() => this.props.getCurrentLocation()}><MdOutlineMyLocation style={{height: '30px', width: '30px'}}/></button>
+                            </div>
                             <div className="weather-image">
                                 <img src={background} alt="" className="cloud-background lightDark" />
                                 <img src={weatherIcon} className="currWeatherIcon" />

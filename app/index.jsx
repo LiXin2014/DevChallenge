@@ -2,7 +2,7 @@ import React from "react";
 import ReactDom from "react-dom/client";
 import { Forecasts } from "./components/Forecasts";
 import SideBar from "./components/SideBar";
-import { getCurrentWeather } from "./apis/utils";
+import { getLocation, getCurrentWeather } from "./apis/utils";
 import './index.css';
 import { Highlights } from "./components/Highlights";
 import SymbolContext from "./context/SymbolContext";
@@ -12,8 +12,8 @@ class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            latitude: 47.7331456,
-            longitude: -122.1951488,
+            latitude: 39.9042,
+            longitude: 116.4074,
             currWeather: null,
             symbol: 'celsius',
             toggleSymbol: (symbol) => {
@@ -22,16 +22,19 @@ class App extends React.Component {
                 })
             }
         };
+
+        this.getCurrentLocation = this.getCurrentLocation.bind(this);
+        this.fetchCurrentWeather = this.fetchCurrentWeather.bind(this);
     }
 
     componentDidMount() {
-        const { latitude, longitude } = this.state;
-        getCurrentWeather(latitude, longitude)
-            .then(currWeather => {
-                this.setState({
-                    currWeather
-                });
-            })
+        this.fetchCurrentWeather();
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        if(prevState.latitude !== this.state.latitude || prevState.longitude !== this.state.longitude) {
+            this.fetchCurrentWeather();
+        }
     }
 
     render() {
@@ -41,17 +44,36 @@ class App extends React.Component {
 
         return (
             <SymbolContext.Provider value={this.state}>
-                <SideBar currWeather={this.state.currWeather} />
+                <SideBar currWeather={this.state.currWeather} getCurrentLocation={this.getCurrentLocation}/>
                 <div className="details">
                     <UnitConverter />
                     <div className="forecast-highlights center">
-                        <Forecasts />
+                        <Forecasts latitude={this.state.latitude} longitude={this.state.longitude}/>
                         <Highlights currWeather={this.state.currWeather}/>
                     </div>
                     <footer />
                 </div>
             </SymbolContext.Provider>
         )
+    }
+
+    fetchCurrentWeather() {
+        const { latitude, longitude } = this.state;
+        getCurrentWeather(latitude, longitude)
+            .then(currWeather => {
+                this.setState({
+                    currWeather
+                });
+            })
+    }
+
+    getCurrentLocation() {
+        getLocation().then((pos) => {
+            this.setState({
+                latitude: pos.lat,
+                longitude: pos.long
+            })
+        })
     }
 }
 
