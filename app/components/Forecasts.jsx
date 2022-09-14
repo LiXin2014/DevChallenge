@@ -17,6 +17,15 @@ export class Forecasts extends React.Component {
             })
     }
 
+    componentDidUpdate(prevProps, prevState) {
+        if(prevProps.latitude !== this.props.latitude || prevProps.longitude !== this.props.longitude) {
+            getForcasts(this.props.latitude, this.props.longitude)
+                .then(result => {
+                    this.setState({ forecasts: result.slice(0, 5) });
+                })
+        }
+    }
+
     render() {
         return (
             <ul className="forecasts">
