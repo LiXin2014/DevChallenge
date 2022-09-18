@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDom from "react-dom/client";
 import { Forecasts } from "./components/Forecasts";
+import { SearchBar } from "./components/SearchBar";
 import SideBar from "./components/SideBar";
 import { getLocation, getCurrentWeather } from "./apis/utils";
 import './index.css';
@@ -16,6 +17,7 @@ class App extends React.Component {
             longitude: 116.4074,
             currWeather: null,
             symbol: 'celsius',
+            searching: false,
             toggleSymbol: (symbol) => {
                 this.setState({
                     symbol: symbol
@@ -25,6 +27,7 @@ class App extends React.Component {
 
         this.getCurrentLocation = this.getCurrentLocation.bind(this);
         this.fetchCurrentWeather = this.fetchCurrentWeather.bind(this);
+        this.startSearch = this.startSearch.bind(this);
     }
 
     componentDidMount() {
@@ -44,7 +47,10 @@ class App extends React.Component {
 
         return (
             <SymbolContext.Provider value={this.state}>
-                <SideBar currWeather={this.state.currWeather} getCurrentLocation={this.getCurrentLocation}/>
+                {this.state.searching ? 
+                    <SearchBar />
+                    : 
+                    <SideBar currWeather={this.state.currWeather} getCurrentLocation={this.getCurrentLocation} startSearch={this.startSearch}/>}
                 <div className="details">
                     <UnitConverter />
                     <div className="forecast-highlights center">
@@ -74,6 +80,10 @@ class App extends React.Component {
                 longitude: pos.long
             })
         })
+    }
+
+    startSearch(search) {
+        this.setState({searching: search});
     }
 }
 

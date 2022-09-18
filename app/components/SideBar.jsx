@@ -22,7 +22,10 @@ export default class SideBar extends React.Component {
                     return (
                         <div className="today">
                             <div className="search">
-                                <button onClick={() => this.props.getCurrentLocation()}><MdOutlineMyLocation style={{height: '30px', width: '30px'}}/></button>
+                                <button 
+                                    className="search-places"
+                                    onClick={() => this.props.startSearch(true)}>Search for places</button>
+                                <button className="location-button" onClick={() => this.props.getCurrentLocation()}><MdOutlineMyLocation style={{height: '30px', width: '30px'}}/></button>
                             </div>
                             <div className="weather-image">
                                 <img src={background} alt="" className="cloud-background lightDark" />

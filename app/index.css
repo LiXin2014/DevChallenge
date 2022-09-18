@@ -38,7 +38,7 @@ body {
 
 /* --------------------------------------------------------- */
 /* Style side bar that contains today's weather */
-.today {
+.today, .searchBar {
     width: 30%;
     background: #1E213A;
     display: flex;
@@ -48,6 +48,8 @@ body {
 .search {
     text-align: right;
     padding: 50px 10% 0px 10%;
+    display: flex;
+    justify-content: space-between;
 }
 
 /* Style for current weather images */
@@ -216,7 +218,7 @@ progress[value]::-webkit-progress-value {
 
 
 /*Style for symbol unit converter*/
-button {
+.unit-converter-button, .location-button {
     display: inline;
     width: 40px;
     height: 40px;
@@ -236,4 +238,70 @@ button {
 .symbol-selected {
     background-color: #E7E7EB;
     color: #110E3C;
+}
+
+/* Style for search for places input*/
+.search-places {
+    background: #6E707A;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    color: #E7E7EB;
+    padding: 10px 18px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 500;
+}
+
+/* Style for search bar */
+.searchBar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 0px;
+}
+
+.searchBar-search {
+    display: flex;
+    align-items: center;
+    border: 1px solid #E7E7EB;
+}
+
+.searchBar-input {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    padding: 10px;
+    margin: 5px;
+    color: white;
+}
+
+.searchBar-input:active {
+    border-left: #616475;
+}
+
+.searchBar-input::placeholder {
+    color: #616475;
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    padding-left: 5px;
+}
+
+.search-button {
+    display: inline;
+    background: #3C47E9;
+    color: #E7E7EB;
+    font-weight: 600;
+    font-family: inherit;
+    align-self: stretch;
+    padding: 0px 15px;
+    border: none;
+}
+
+.search-container {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
 }

@@ -7,13 +7,13 @@ export default function UnitConverter() {
             {({symbol, toggleSymbol}) => {
                 return (
                     <div className="unit-converter">
-                        <button 
-                            className={symbol === "celsius" ? "symbol-selected" : ""}
+                        <button
+                            className={symbol === "celsius" ? "unit-converter-button symbol-selected" : "unit-converter-button"}
                             onClick={() => toggleSymbol("celsius")}>
                                 &deg;C
                         </button>
                         <button 
-                            className={symbol === "fahrenheit" ? "symbol-selected" : ""}
+                            className={symbol === "fahrenheit" ? "unit-converter-button symbol-selected" : "unit-converter-button"}
                             onClick={() => toggleSymbol("fahrenheit")}>
                                 &deg;F
                         </button>
