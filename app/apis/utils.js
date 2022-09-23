@@ -127,21 +127,24 @@ export function getTempSymbol(symbol) {
     }
 }
 
-export function getCurrentWeather(lat = 0, long = 0) {
-    if (lat === 0 && long === 0) {
-        const { lat, long } = getLocation();
+export function getCurrentWeather(lat, long, city, country) {
+    let url = "";
+    if (lat && long) {
+        url = `${baseURL}/current?lat=${lat}&lon=${long}&key=${apiKey}`;
+    } else {
+        url = `${baseURL}/current?city=${city}&country=${country}&key=${apiKey}`;
     }
-    const url = `${baseURL}/current?lat=${lat}&lon=${long}&key=${apiKey}`;
     return fetch(url).then(data => data.json()).then(result => result.data[0]);
 }
 
-export function getForcasts(lat = 0, long = 0) {
-    if (lat === 0 && long === 0) {
-        const { lat, long } = getLocation();
+export function getForcasts(lat, long, city, country) {
+    let url = "";
+    if (lat && long) {
+        url = `${baseURL}/forecast/daily?lat=${lat}&lon=${long}&key=${apiKey}`;
+    } else {
+        url = `${baseURL}/forecast/daily?city=${city}&country=${country}&key=${apiKey}`;
     }
-    const url = `${baseURL}/forecast/daily?lat=${lat}&lon=${long}&key=${apiKey}`;
     return fetch(url).then(data => data.json()).then(result => result.data);
-
 }
 
 export function getCurrentDate() {

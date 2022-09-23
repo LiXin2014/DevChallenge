@@ -11,15 +11,16 @@ export class Forecasts extends React.Component {
     }
 
     componentDidMount() {
-        getForcasts(this.props.latitude, this.props.longitude)
+        getForcasts(this.props.latitude, this.props.longitude, this.props.city, this.props.country)
             .then(result => {
                 this.setState({ forecasts: result.slice(0, 5) });
             })
     }
 
     componentDidUpdate(prevProps, prevState) {
-        if(prevProps.latitude !== this.props.latitude || prevProps.longitude !== this.props.longitude) {
-            getForcasts(this.props.latitude, this.props.longitude)
+        if(prevProps.latitude !== this.props.latitude || prevProps.longitude !== this.props.longitude
+            || prevProps.city !== this.props.city || prevProps.country !== this.props.country) {
+            getForcasts(this.props.latitude, this.props.longitude, this.props.city, this.props.country)
                 .then(result => {
                     this.setState({ forecasts: result.slice(0, 5) });
                 })

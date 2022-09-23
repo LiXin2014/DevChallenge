@@ -301,7 +301,33 @@ progress[value]::-webkit-progress-value {
 .search-container {
     width: 80%;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     gap: 10px;
+}
+
+/* Style for search result */
+.searchResult {
+    list-style: none;
+    width: 80%;
+    margin-top: 30px;
+}
+
+.searchResult li {
+    padding: 20px 10px;
+    border: 1px solid transparent;
+}
+
+.searchResult li:hover {
+    border: 1px solid #616475;
+}
+
+.searchResult li:hover span {
+    display: flex;
+    justify-content: space-between;
+}
+
+.searchResult li:hover span::after {
+    content: ">";
+    color: #616475;
 }

@@ -15,6 +15,8 @@ class App extends React.Component {
         this.state = {
             latitude: 39.9042,
             longitude: 116.4074,
+            city: null,
+            country: null,
             currWeather: null,
             symbol: 'celsius',
             searching: false,
@@ -28,6 +30,7 @@ class App extends React.Component {
         this.getCurrentLocation = this.getCurrentLocation.bind(this);
         this.fetchCurrentWeather = this.fetchCurrentWeather.bind(this);
         this.startSearch = this.startSearch.bind(this);
+        this.setCurrentLocation = this.setCurrentLocation.bind(this);
     }
 
     componentDidMount() {
@@ -35,7 +38,8 @@ class App extends React.Component {
     }
 
     componentDidUpdate(prevProps, prevState) {
-        if(prevState.latitude !== this.state.latitude || prevState.longitude !== this.state.longitude) {
+        if(prevState.latitude !== this.state.latitude || prevState.longitude !== this.state.longitude
+            || prevState.city !== this.state.city || prevState.country !== this.state.country) {
             this.fetchCurrentWeather();
         }
     }
@@ -48,13 +52,13 @@ class App extends React.Component {
         return (
             <SymbolContext.Provider value={this.state}>
                 {this.state.searching ? 
-                    <SearchBar />
+                    <SearchBar startSearch={this.startSearch} setCurrentLocation={this.setCurrentLocation}/>
                     : 
                     <SideBar currWeather={this.state.currWeather} getCurrentLocation={this.getCurrentLocation} startSearch={this.startSearch}/>}
                 <div className="details">
                     <UnitConverter />
                     <div className="forecast-highlights center">
-                        <Forecasts latitude={this.state.latitude} longitude={this.state.longitude}/>
+                        <Forecasts latitude={this.state.latitude} longitude={this.state.longitude} city={this.state.city} country={this.state.country}/>
                         <Highlights currWeather={this.state.currWeather}/>
                     </div>
                     <footer />
@@ -64,8 +68,8 @@ class App extends React.Component {
     }
 
     fetchCurrentWeather() {
-        const { latitude, longitude } = this.state;
-        getCurrentWeather(latitude, longitude)
+        const { latitude, longitude, city, country } = this.state;
+        getCurrentWeather(latitude, longitude, city, country)
             .then(currWeather => {
                 this.setState({
                     currWeather
@@ -77,8 +81,19 @@ class App extends React.Component {
         getLocation().then((pos) => {
             this.setState({
                 latitude: pos.lat,
-                longitude: pos.long
+                longitude: pos.long,
+                city: null,
+                country: null
             })
+        })
+    }
+
+    setCurrentLocation(cityItem) {
+        this.setState({
+            city: cityItem.city,
+            country: cityItem.country,
+            latitude: null,
+            longitude: null
         })
     }
 
