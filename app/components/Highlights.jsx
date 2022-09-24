@@ -1,10 +1,11 @@
 import React from "react";
 import { HighlightCard } from "./HighlightCard";
 import { MdAssistantNavigation } from "react-icons/md";
-import { getRotation } from "../apis/utils";
+import { getRotation, convertToLocalTime } from "../apis/utils";
 
 export function Highlights({ currWeather }) {
     const {wind_spd: windSpeed, wind_cdir: windDir, rh: humidity, sunset, aqi} = currWeather;
+    const localSunset = convertToLocalTime(sunset);
     return (
         <div className="highlights">
             <div className="highlights-title">Today's Highlights</div>
@@ -31,7 +32,7 @@ export function Highlights({ currWeather }) {
                     </HighlightCard>
                 </div>
                 <div className="highlight-item center">
-                    <HighlightCard title={`sunset`} value={sunset} />
+                    <HighlightCard title={`sunset`} value={localSunset} />
                 </div>
                 <div className="highlight-item center">
                     <HighlightCard title={`Air Quality`} value={aqi} unit={`QAI`}/>

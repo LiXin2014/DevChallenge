@@ -155,6 +155,21 @@ export function getCurrentDate() {
     return `${day}, ${date} ${month}`;
 }
 
+/* 
+This method converts GMT time to local time 
+For example, if input time is "02:02", and it's in GMC-7 timezone, the output time would be "19:02"
+*/
+export function convertToLocalTime(GMTtime) {
+    const offset = -new Date().getTimezoneOffset()/60;
+    const GMThour = GMTtime.split(":")[0];
+    const GMTMin = GMTtime.split(":")[1];
+    if(GMThour + offset > 0) {
+        return `${GMThour + offset} : ${GMTMin}`;
+    } else {
+        return `${24 + offset} : ${GMTMin}`;
+    }
+}
+
 
 
 
