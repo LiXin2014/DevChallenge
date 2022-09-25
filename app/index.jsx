@@ -55,7 +55,7 @@ class App extends React.Component {
                     <SearchBar startSearch={this.startSearch} setCurrentLocation={this.setCurrentLocation}/>
                     : 
                     <SideBar currWeather={this.state.currWeather} getCurrentLocation={this.getCurrentLocation} startSearch={this.startSearch}/>}
-                <div className="details">
+                <div className="details" onClick={() => { this.setState({searching: false}); }}>
                     <UnitConverter />
                     <div className="forecast-highlights center">
                         <Forecasts latitude={this.state.latitude} longitude={this.state.longitude} city={this.state.city} country={this.state.country}/>

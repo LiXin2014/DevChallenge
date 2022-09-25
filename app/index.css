@@ -230,6 +230,10 @@ progress[value]::-webkit-progress-value {
     color: #E7E7EB;
 }
 
+.unit-converter-button:hover, .location-button:hover {
+    cursor: pointer;
+}
+
 .unit-converter {
     padding: 50px 10% 0px 10%;
     text-align: right;
