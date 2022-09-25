@@ -335,3 +335,21 @@ progress[value]::-webkit-progress-value {
     content: ">";
     color: #616475;
 }
+
+/* style for footer */
+footer {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    color: #BDBDBD;
+    margin-bottom: 25px;
+}
+
+footer .created-by {
+    margin: 0 auto;
+    width: fit-content;
+}
+
+footer .author {
+    font-weight: bold;
+    color: #BDBDBD;
+}
