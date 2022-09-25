@@ -1,0 +1,337 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@500;600;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    min-height: 100%;
+}
+
+body {
+    color: #E7E7EB;
+    background-color: #44444a;
+    min-height: 100vh;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 500;
+}
+
+#app {
+    display: flex;
+    max-width: 1500px;
+    margin: 0 auto;
+    min-height: 100vh;
+}
+
+/* Styles to reuse */
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lightDark {
+    opacity: 0.5;
+}
+
+/* --------------------------------------------------------- */
+/* Style side bar that contains today's weather */
+.today, .searchBar {
+    width: 30%;
+    background: #1E213A;
+    display: flex;
+    flex-direction: column;
+}
+
+.search {
+    text-align: right;
+    padding: 50px 10% 0px 10%;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Style for current weather images */
+.weather-image {
+    flex: 2;
+    position: relative;
+}
+
+.cloud-background {
+    width: 100%;
+    height: 100%;
+    object-fit: none;
+}
+
+.currWeatherIcon {
+    position: absolute;
+    width: 45%;
+    left: 30%;
+    top: 20%;
+}
+
+.temperature {
+    flex: 1;
+}
+
+.temp-number {
+    font-size: 6em;
+}
+
+.today .temp-symbol {
+    align-self: center;
+    font-size: 2em;
+    position: relative;
+    top: 0.5em;
+}
+
+.description {
+    flex: 1;
+    font-size: 2em;
+}
+
+.date-location {
+    flex: 1;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.date {
+    margin: 0 10px;
+}
+
+.location-symbol {
+    font-size: 1.5em;
+    margin-right: 9px;
+}
+
+/* Style for right side of forecast and highlights */
+.details {
+    width: 70%;
+    background: #100E1D;
+    display: flex;
+    flex-direction: column;
+}
+
+.details .forecast-highlights {
+    padding: 20px 10%;
+    flex: 1;
+    flex-direction: column;
+    align-items: unset;
+    justify-content: space-evenly;
+}
+
+/* Style for forecast */
+.details .forecasts {
+    display: flex;
+    gap: 15px;
+}
+
+.forecast {
+    background: #1E213A;
+    flex: 1;
+    flex-direction: column;
+    padding: 30px 10px;
+    gap: 10px;
+}
+
+.forecast img {
+    width: 60%;
+    height: 50%;   /* Need to specify height too, otherwise different image has different height */
+    object-fit: contain;
+}
+
+.forecast .temp {
+    margin-top: 20px;
+}
+
+.forecast .highTemp {
+    margin-right: 15px;
+}
+
+
+/* Style for highlights */
+.highlights-title {
+    font-weight: 700;
+    font-size: 2em;
+    margin: 50px 0px 30px 0px;
+}
+
+.highlights-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    column-gap: 30px;
+    row-gap: 30px;
+}
+
+.highlight-item {
+    background-color: #1E213A;
+    flex-direction: column;
+    gap: 15px;
+    padding: 30px 20px;
+}
+
+.value-unit {
+    font-weight: 700;
+    font-size: 4rem;
+}
+
+.unit {
+    font-size: 2rem;
+}
+
+/* Style for progress bar in Highlights section */
+.progress {
+    width: 70%;
+    flex-direction: column;
+    gap: 2px;
+}
+
+progress[value] {
+    width: 100%;
+    height: 10px;
+    -webkit-appearance: none;
+}
+
+progress[value]::-webkit-progress-bar {
+    background-color: #eee;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+}
+
+progress[value]::-webkit-progress-value {
+    border-radius: 5px;
+    background-color: #FFEC65;
+}
+
+.progress-number {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.progress-unit {
+    align-self: flex-end;
+}
+
+
+/*Style for symbol unit converter*/
+.unit-converter-button, .location-button {
+    display: inline;
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    margin-left: 5px;
+    font-weight: 700;
+    font-size: 15px;
+    background-color: #585676;
+    color: #E7E7EB;
+}
+
+.unit-converter-button:hover, .location-button:hover {
+    cursor: pointer;
+}
+
+.unit-converter {
+    padding: 50px 10% 0px 10%;
+    text-align: right;
+}
+
+.symbol-selected {
+    background-color: #E7E7EB;
+    color: #110E3C;
+}
+
+/* Style for search for places input*/
+.search-places {
+    background: #6E707A;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    color: #E7E7EB;
+    padding: 10px 18px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 500;
+}
+
+/* Style for search bar */
+.searchBar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 0px;
+}
+
+.searchBar-search {
+    display: flex;
+    align-items: center;
+    border: 1px solid #E7E7EB;
+}
+
+.searchBar-input {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    padding: 10px;
+    margin: 5px;
+    color: white;
+}
+
+.searchBar-input:active {
+    border-left: #616475;
+}
+
+.searchBar-input::placeholder {
+    color: #616475;
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    padding-left: 5px;
+}
+
+.search-button {
+    display: inline;
+    background: #3C47E9;
+    color: #E7E7EB;
+    font-weight: 600;
+    font-family: inherit;
+    align-self: stretch;
+    padding: 0px 15px;
+    border: none;
+}
+
+.search-container {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Style for search result */
+.searchResult {
+    list-style: none;
+    width: 80%;
+    margin-top: 30px;
+}
+
+.searchResult li {
+    padding: 20px 10px;
+    border: 1px solid transparent;
+}
+
+.searchResult li:hover {
+    border: 1px solid #616475;
+}
+
+.searchResult li:hover span {
+    display: flex;
+    justify-content: space-between;
+}
+
+.searchResult li:hover span::after {
+    content: ">";
+    color: #616475;
+}
