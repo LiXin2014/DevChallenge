@@ -61,7 +61,9 @@ class App extends React.Component {
                         <Forecasts latitude={this.state.latitude} longitude={this.state.longitude} city={this.state.city} country={this.state.country}/>
                         <Highlights currWeather={this.state.currWeather}/>
                     </div>
-                    <footer />
+                    <footer>
+                        <div class="created-by">created by <a class="author" href="https://github.com/LiXin2014">@LiXin2014</a> - devChallenges.io</div>
+                    </footer>
                 </div>
             </SymbolContext.Provider>
         )
