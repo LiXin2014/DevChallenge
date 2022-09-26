@@ -1,6 +1,6 @@
 <!-- Please update value in the {}  -->
 
-<h1 align="center">{Your project name}</h1>
+<h1 align="center">WeatherApp</h1>
 
 <div align="center">
    Solution for a challenge from  <a href="http://devchallenges.io" target="_blank">Devchallenges.io</a>.
@@ -74,6 +74,9 @@ $ npm install
 
 # Run the app in dev mode
 $ npm run dev
+
+# Build the app in production mode
+$ npm run build
 ```
 
 ## Acknowledgements
