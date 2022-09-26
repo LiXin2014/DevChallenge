@@ -8,11 +8,11 @@
 
 <div align="center">
   <h3>
-    <a href="https://{your-demo-link.your-domain}">
+    <a href="https://dev-challenge-9hdbqv4j0-lixin2014.vercel.app/">
       Demo
     </a>
     <span> | </span>
-    <a href="https://{your-url-to-the-solution}">
+    <a href="https://github.com/LiXin2014/DevChallenge/tree/WeatherApp/WeatherApp">
       Solution
     </a>
     <span> | </span>
