@@ -8,7 +8,7 @@
 
 <div align="center">
   <h3>
-    <a href="https://dev-challenge-9hdbqv4j0-lixin2014.vercel.app/">
+    <a href="https://dev-challenge-lixin2014.vercel.app/">
       Demo
     </a>
     <span> | </span>

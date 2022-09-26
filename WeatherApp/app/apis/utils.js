@@ -58,7 +58,7 @@ function getDay(dayNumber) {
             return "Fri";
         case 6:
             return "Sat";
-        case 7:
+        case 0:
             return "Sun";
     }
 }
