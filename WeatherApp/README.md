@@ -41,15 +41,25 @@
 This project uses API provided by https://www.weatherbit.io/. It provides below features:
 
 You can search for city
+
 You can see weather of today and the next 5 days
+
 You can see the date and location of the weather
+
 You can see according to image for each type of weather
+
 You can see the min and max degree each day
+
 You can see wind status and wind direction
+
 You can see humidity percentage
+
 You can see a visibility indicator
+
 You can see the air pressure number
+
 You can request my current location weather
+
 You can convert temperature in Celcius to Fahrenheit and vice versa
 
 ### Built With
