@@ -1,6 +1,6 @@
 <!-- Please update value in the {}  -->
 
-<h1 align="center">{Your project name}</h1>
+<h1 align="center">WeatherApp</h1>
 
 <div align="center">
    Solution for a challenge from  <a href="http://devchallenges.io" target="_blank">Devchallenges.io</a>.
@@ -8,11 +8,11 @@
 
 <div align="center">
   <h3>
-    <a href="https://{your-demo-link.your-domain}">
+    <a href="https://dev-challenge-lixin2014.vercel.app/">
       Demo
     </a>
     <span> | </span>
-    <a href="https://{your-url-to-the-solution}">
+    <a href="https://github.com/LiXin2014/DevChallenge/tree/WeatherApp/WeatherApp">
       Solution
     </a>
     <span> | </span>
@@ -41,15 +41,25 @@
 This project uses API provided by https://www.weatherbit.io/. It provides below features:
 
 You can search for city
+
 You can see weather of today and the next 5 days
+
 You can see the date and location of the weather
+
 You can see according to image for each type of weather
+
 You can see the min and max degree each day
+
 You can see wind status and wind direction
+
 You can see humidity percentage
+
 You can see a visibility indicator
+
 You can see the air pressure number
+
 You can request my current location weather
+
 You can convert temperature in Celcius to Fahrenheit and vice versa
 
 ### Built With
@@ -74,6 +84,9 @@ $ npm install
 
 # Run the app in dev mode
 $ npm run dev
+
+# Build the app in production mode
+$ npm run build
 ```
 
 ## Acknowledgements
