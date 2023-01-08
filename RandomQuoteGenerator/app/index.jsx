@@ -1,10 +1,11 @@
 import React from "react";
 import ReactDom from "react-dom/client";
 import './index.css';
+import { Quote } from "./components/Quote";
 
 class App extends React.Component {
     render() {
-        return <div>Hello World!</div>
+        return <Quote />
     }
 }
 
