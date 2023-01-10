@@ -1,11 +1,15 @@
 import React from "react";
 import ReactDom from "react-dom/client";
 import './index.css';
-import { Quote } from "./components/Quote";
+import { RandomQuote } from "./components/RandomQuote";
 
 class App extends React.Component {
     render() {
-        return <Quote />
+        return (
+            <React.Fragment>
+                <RandomQuote />
+            </React.Fragment>
+        )
     }
 }
 
