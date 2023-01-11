@@ -4,12 +4,27 @@ import './index.css';
 import { RandomQuote } from "./components/RandomQuote";
 
 class App extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            reload: false
+        }
+        this.randomClicked = this.randomClicked.bind(this);
+    }
+
     render() {
         return (
             <React.Fragment>
-                <RandomQuote />
+                <button onClick={this.randomClicked}>random</button>
+                <RandomQuote reload={this.state.reload}/>
             </React.Fragment>
         )
+    }
+
+    randomClicked() {
+        this.setState({
+            reload: !this.state.reload
+        })
     }
 }
 
