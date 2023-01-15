@@ -2,6 +2,7 @@ import React from "react";
 import ReactDom from "react-dom/client";
 import './index.css';
 import { RandomQuote } from "./components/RandomQuote";
+import { BiRefresh } from "react-icons/bi";
 
 class App extends React.Component {
     constructor() {
@@ -15,7 +16,10 @@ class App extends React.Component {
     render() {
         return (
             <React.Fragment>
-                <button onClick={this.randomClicked}>random</button>
+                <button onClick={this.randomClicked}>
+                    <span className="refreshText">random</span>
+                    <BiRefresh className="refreshIcon"/>
+                </button>
                 <RandomQuote reload={this.state.reload}/>
             </React.Fragment>
         )
