@@ -2,6 +2,7 @@ import React from "react";
 import { getRandomQuote } from "../apis/utils";
 import { quoteHolder } from "../apis/quoteHolder";
 import { Quote } from "./Quote";
+import { Author } from "./Author";
 
 export class RandomQuote extends React.Component {
     constructor(props) {
@@ -30,7 +31,7 @@ export class RandomQuote extends React.Component {
         return (
             <div className="random">
                 <Quote text={this.state.text} />
-                <div className="author">{this.state.author}</div>
+                <Author author={this.state.author} />
             </div>
         )
     }

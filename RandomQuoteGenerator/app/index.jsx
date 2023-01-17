@@ -16,7 +16,7 @@ class App extends React.Component {
     render() {
         return (
             <React.Fragment>
-                <button onClick={this.randomClicked}>
+                <button onClick={this.randomClicked} className="refreshButton">
                     <span className="refreshText">random</span>
                     <BiRefresh className="refreshIcon"/>
                 </button>

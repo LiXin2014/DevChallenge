@@ -24,6 +24,7 @@ body {
     height: 100vh;
 }
 
+/* Quote */
 .quote {
     display: flex;  /* Without this, ::before doesn't show up. Asked and answered here: https://stackoverflow.com/questions/75055502/before-element-doesnt-show-up-without-displayflex  */
 }
@@ -35,6 +36,7 @@ body {
     margin-right: 50px;
 }
 
+/* Random Quote */
 .random {
     display: flex;
     justify-content: center;
@@ -42,14 +44,8 @@ body {
     flex-grow: 1;
 }
 
-.author {
-    margin-left: 58px;
-    margin-top: 50px;
-    font-weight: 700;
-    font-size: 24px;
-}
-
-button {
+/* Refresh button */
+.refreshButton {
     border: none;
     background: none;
     cursor: pointer;
@@ -66,4 +62,35 @@ button {
 
 .refreshText {
     font-size: 18px;
+}
+
+/* author on random quote page */
+.authorButton {
+    margin-left: 25px;
+    margin-top: 50px;
+    font-weight: 700;
+    font-size: 24px;
+    padding: 50px 0px;
+    position: relative;
+    border: none;
+    background: none;
+    cursor: pointer;
+    height: 128px;
+}
+
+.authorButton:hover {
+    background: black;
+    color: #F2F2F2;
+}
+
+.author {
+    position: absolute;
+    left: 25px;
+    top: 50px;
+}
+
+.gotoArrow {
+    position: absolute;
+    top: 50px;
+    right: 50px;
 }
