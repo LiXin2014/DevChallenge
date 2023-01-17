@@ -8,6 +8,6 @@ export function getRandomQuote(quotes) {
 }
 
 export function getQuotesForAnAuthor(quotes, author) {
-    const quotesForAnAuthor = quotes.filter(q => q.author === author);
+    const quotesForAnAuthor = quotes.filter(q => q.author === author).map(q => q.text);
     return quotesForAnAuthor;
 }

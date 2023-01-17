@@ -2,15 +2,18 @@ import React from "react";
 import ReactDom from "react-dom/client";
 import './index.css';
 import { RandomQuote } from "./components/RandomQuote";
+import { QuotesForAuthor } from "./components/QuotesForAuthor";
 import { BiRefresh } from "react-icons/bi";
 
 class App extends React.Component {
     constructor() {
         super();
         this.state = {
-            reload: false
+            reload: false,
+            selectedAuthor: ""
         }
         this.randomClicked = this.randomClicked.bind(this);
+        // this.onSelectAuthor = this.onSelectAuthor.bind(this);
     }
 
     render() {
@@ -20,7 +23,11 @@ class App extends React.Component {
                     <span className="refreshText">random</span>
                     <BiRefresh className="refreshIcon"/>
                 </button>
-                <RandomQuote reload={this.state.reload}/>
+                { this.state.selectedAuthor === "" ? 
+                    <RandomQuote reload={this.state.reload}/> 
+                    :
+                    <QuotesForAuthor author={this.state.selectedAuthor}/> 
+                }
             </React.Fragment>
         )
     }

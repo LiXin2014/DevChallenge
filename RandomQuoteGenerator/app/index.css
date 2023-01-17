@@ -79,7 +79,7 @@ body {
 }
 
 .authorButton:hover {
-    background: black;
+    background: #333333;
     color: #F2F2F2;
 }
 
@@ -93,4 +93,13 @@ body {
     position: absolute;
     top: 50px;
     right: 50px;
+}
+
+/* list of quotes */
+ul {
+    list-style: none;
+}
+
+li {
+    margin-top: 100px;
 }
