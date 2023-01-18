@@ -34,7 +34,8 @@ class App extends React.Component {
 
     randomClicked() {
         this.setState({
-            reload: !this.state.reload
+            reload: !this.state.reload,
+            selectedAuthor: ""
         })
     }
 
