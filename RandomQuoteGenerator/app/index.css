@@ -103,3 +103,8 @@ ul {
 li {
     margin-top: 100px;
 }
+
+.authorForQuotes {
+    font-weight: 700;
+    margin-top: 30px;
+}

@@ -13,7 +13,7 @@ class App extends React.Component {
             selectedAuthor: ""
         }
         this.randomClicked = this.randomClicked.bind(this);
-        // this.onSelectAuthor = this.onSelectAuthor.bind(this);
+        this.onSelectAuthor = this.onSelectAuthor.bind(this);
     }
 
     render() {
@@ -24,7 +24,7 @@ class App extends React.Component {
                     <BiRefresh className="refreshIcon"/>
                 </button>
                 { this.state.selectedAuthor === "" ? 
-                    <RandomQuote reload={this.state.reload}/> 
+                    <RandomQuote reload={this.state.reload} onSelectAuthor={this.onSelectAuthor}/> 
                     :
                     <QuotesForAuthor author={this.state.selectedAuthor}/> 
                 }
@@ -35,6 +35,12 @@ class App extends React.Component {
     randomClicked() {
         this.setState({
             reload: !this.state.reload
+        })
+    }
+
+    onSelectAuthor(selectedAuthor) {
+        this.setState({
+            selectedAuthor
         })
     }
 }

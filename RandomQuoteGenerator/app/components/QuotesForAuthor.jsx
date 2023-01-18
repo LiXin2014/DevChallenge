@@ -24,13 +24,16 @@ export class QuotesForAuthor extends React.Component {
 
     render() {
         return (
-            <ul>
-                {this.state.quotesForAuthor.map((q, index) => (
-                    <li key={index}>
-                        <Quote text={q} />
-                    </li>
-                ))}
-            </ul>
+            <React.Fragment>
+                <div className="authorForQuotes">{this.props.author}</div>
+                <ul>
+                    {this.state.quotesForAuthor.map((q, index) => (
+                        <li key={index}>
+                            <Quote text={q} />
+                        </li>
+                    ))}
+                </ul>
+            </React.Fragment>
         )
     }
 }

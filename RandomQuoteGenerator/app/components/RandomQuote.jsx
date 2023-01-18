@@ -31,7 +31,7 @@ export class RandomQuote extends React.Component {
         return (
             <div className="random">
                 <Quote text={this.state.text} />
-                <Author author={this.state.author} />
+                <Author author={this.state.author} onSelectAuthor={this.props.onSelectAuthor}/>
             </div>
         )
     }
