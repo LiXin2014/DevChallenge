@@ -19,15 +19,19 @@ class App extends React.Component {
     render() {
         return (
             <React.Fragment>
-                <button onClick={this.randomClicked} className="refreshButton">
-                    <span className="refreshText">random</span>
-                    <BiRefresh className="refreshIcon"/>
-                </button>
-                { this.state.selectedAuthor === "" ? 
-                    <RandomQuote reload={this.state.reload} onSelectAuthor={this.onSelectAuthor}/> 
-                    :
-                    <QuotesForAuthor author={this.state.selectedAuthor}/> 
-                }
+                <nav>
+                    <button onClick={this.randomClicked} className="refreshButton">
+                        <span className="refreshText">random</span>
+                        <BiRefresh className="refreshIcon"/>
+                    </button>
+                </nav>
+                <main>
+                    { this.state.selectedAuthor === "" ? 
+                        <RandomQuote reload={this.state.reload} onSelectAuthor={this.onSelectAuthor}/> 
+                        :
+                        <QuotesForAuthor author={this.state.selectedAuthor}/> 
+                    }
+                </main>
             </React.Fragment>
         )
     }

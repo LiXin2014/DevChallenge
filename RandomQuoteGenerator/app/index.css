@@ -24,6 +24,22 @@ body {
     height: 100vh;
 }
 
+nav {
+    position: fixed;
+    background: white;
+    width: 50%;
+    /* Below two lines move refresh button on right */
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 100px;
+}
+
 /* Quote */
 .quote {
     display: flex;  /* Without this, ::before doesn't show up. Asked and answered here: https://stackoverflow.com/questions/75055502/before-element-doesnt-show-up-without-displayflex  */
@@ -49,7 +65,7 @@ body {
     border: none;
     background: none;
     cursor: pointer;
-    margin-top: 50px;
+    margin: 50px;
     align-self: flex-end;
     display: flex;
 }
