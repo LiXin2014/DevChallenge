@@ -30,7 +30,7 @@ nav {
     width: 50%;
     /* Below two lines move refresh button on right */
     display: flex;
-    flex-direction: column;
+    justify-content: flex-end;
 }
 
 main {
@@ -66,7 +66,6 @@ main {
     background: none;
     cursor: pointer;
     margin: 50px;
-    align-self: flex-end;
     display: flex;
 }
 
